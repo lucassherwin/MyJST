@@ -1,24 +1,58 @@
-# README
+# MyJST
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Goal
 
-Things you may want to cover:
+- Create an all-in-one job search tracker and TODO list application
 
-* Ruby version
+## Features
 
-* System dependencies
+- User accounts with auth
+- Job search tracker
+  - Applied to, to apply, in communication with
+- Status is color coded
+- ToDo list
 
-* Configuration
+## Stack
 
-* Database creation
+- Rails, Vue, Postgresql, RSpec
 
-* Database initialization
+## MyJst TODO
 
-* How to run the test suite
+- [ ] Setup application
+- [ ] Build db
+- [ ] Build out basic backend
+- [ ] Build out basic frontend
+- [ ] Get data from DB on frontend
+- [ ] Make frontned better
+- [ ] Add extra items like auth
+- [ ] Stretch goals
 
-* Services (job queues, cache servers, search engines, etc.)
+## DB Structure
 
-* Deployment instructions
+User -< Jobs
+User -< Tasks (ToDo items)
+User:
 
-* ...
+- First name
+- Last name
+- email
+- username
+- password
+
+Job:
+
+- Company
+- Position Title
+- Status (to apply, applied to, in communication with, deadend)
+- Contact
+- userID
+
+Task:
+
+- Title
+- Additional details (can be blank)
+- userID
+
+## Stretch Goals
+
+- Mobile app/PWA
