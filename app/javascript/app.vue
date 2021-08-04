@@ -2,13 +2,13 @@
   <div id="app">
     <v-app>
       <p>{{ message }}</p>
-      <user/>
+      <job />
     </v-app>
   </div>
 </template>
 
 <script>
-import user from "./packs/components/user.vue";
+import job from "./packs/components/job.vue";
 export default {
   data: function() {
     return {
@@ -16,7 +16,7 @@ export default {
     };
   },
   components: {
-    user: user
+    job: job
   }
 };
 </script>
