@@ -2,7 +2,7 @@
   <v-data-table :headers="headers" :items="jobs" sort-by="calories" class="elevation-1">
     <template v-slot:top>
       <v-toolbar flat color="white">
-        <v-toolbar-title>My CRUD</v-toolbar-title>
+        <v-toolbar-title>MyJST</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="500px">
@@ -75,14 +75,8 @@ export default {
       title: "",
       company: "",
       contact: "",
-      status: ""
-    },
-    defaultItem: {
-      name: "",
-      calories: "",
-      fat: "",
-      carbs: "",
-      protein: ""
+      status: "",
+      user_id: 1 // hardcode this for now
     }
   }),
   computed: {
@@ -110,11 +104,63 @@ export default {
         console.log(e);
       });
     },
+
+    getUser(item) {
+      axios.get(`https://localhost:3000/jobs/${item.id}`)
+      .then(response => {
+        this.job = response.data;
+        })
+      .catch(error => {
+        console.log(error);
+      })
+    },
+
+    editItem(item) {
+      this.editedIndex = item.id;
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+
+    save(item) {
+      if (this.editedIndex > -1) {
+        axios
+          .put(`http://localhost:3000/jobs/${item.id}`, {
+            id: this.editedItem.id,
+            title: this.editedItem.title,
+            company: this.editedItem.company,
+            contact: this.editedItem.contact,
+            status: this.editedItem.status,
+            user_id: 1 // hardcode this for now
+          })
+          .then(response => {
+          console.log(response);
+          this.initialize();
+          })
+          .catch(error => {
+          console.log(error);
+        });
+      } 
+      else {
+        axios
+          .post(`http://localhost:3000/jobs/`, {
+            job: this.editedItem
+          })
+          .then(response => {
+            console.log(response);
+            console.log("Created!");
+            this.initialize();
+          })
+          .catch(error => {
+            console.log(error);
+        });
+      }
+      this.close();
+    },
   
     close() {
       this.dialog = false;
       setTimeout(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
+        this.editedItem = Object.assign({});
         this.editedIndex = -1;
       }, 300);
     }
