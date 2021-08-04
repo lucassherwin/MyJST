@@ -11,12 +11,9 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
-    puts '>>>> outside if'
     if @job.save
-      puts '>>>> in if'
       render json: { status: :ok, message: 'Success' }
     else
-      puts ">>>> in else #{@job.errors.inspect}"
       render json: { json: @job.errors, status: :unprocessable_entity }
     end
   end
@@ -25,6 +22,15 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     if @job.update(job_params)
       render json: { status: :ok, message: 'Success' }
+    else
+      render json: { json: @job.errors, status: :unprocessable_entity }
+    end
+  end
+
+  def destroy
+    @job = Job.find(params[:id])
+    if @job.destroy
+      render json: { json: 'Job was successfully deleted.'}
     else
       render json: { json: @job.errors, status: :unprocessable_entity }
     end

@@ -156,6 +156,23 @@ export default {
       }
       this.close();
     },
+
+    deleteItem(item) {
+      const index = this.jobs.indexOf(item);
+      confirm("Are you sure you want to delete this item?"); 
+      axios
+        .delete(`http://localhost:3000/jobs/${item.id}`)
+        .then(response => {
+          console.log(response);
+          console.log(response.data.json);
+          alert(response.data.json);
+          this.initialize();
+        })
+        .catch(error => {
+          console.log(error);
+        });
+        this.jobs.splice(index, 1);
+    },
   
     close() {
       this.dialog = false;
