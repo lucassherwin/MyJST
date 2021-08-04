@@ -12,7 +12,7 @@ import job from "./packs/components/job.vue";
 export default {
   data: function() {
     return {
-      message: "Hello Vue!"
+      message: "MyJST"
     };
   },
   components: {

@@ -4,6 +4,7 @@
       <v-toolbar flat color="white">
         <v-toolbar-title>MyJST</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
+        <v-toolbar-title>MyToDo</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on }">
@@ -27,7 +28,13 @@
                     <v-text-field v-model="editedItem.contact" label="Contact"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.status" label="Status"></v-text-field>
+                    <v-select v-model="editedItem.status" :items="['Applied', 'In Contact', 'Interview', 'Denied']" label="Status">
+                      <template v-slot:item="{ item, attrs, on }">
+                        <v-list-item v-bind="attrs" v-on="on">
+                          <v-list-item-title :id="attrs['aria-labelledby']" v-text="item"></v-list-item-title>
+                        </v-list-item>
+                      </template>
+                    </v-select>
                   </v-col>
                 </v-row>
               </v-container>
