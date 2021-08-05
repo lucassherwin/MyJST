@@ -8,9 +8,10 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
+import VueRouter from 'vue-router';
 import App from '../app.vue';
 
-Vue.use(Vuetify);
+Vue.use(Vuetify, VueRouter);
 
 document.addEventListener('DOMContentLoaded', () => {
 	const app = new Vue({
