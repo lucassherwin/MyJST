@@ -18,13 +18,16 @@
 
 ## MyJst TODO
 
-- [ ] Setup application
-- [ ] Build db
-- [ ] Build out basic backend
-- [ ] Build out basic frontend
-- [ ] Get data from DB on frontend
+- [ x ] Setup application
+- [ x ] Build db
+- [ x ] Build out basic backend
+- [ x ] Build out basic frontend
+- [ x ] Get data from DB on frontend
 - [ ] Make frontned better
+  - [ ] header MyJST | ToDos as buttons that load each respective component
+  - [ ] welcome page
 - [ ] Add extra items like auth
+- protected routes
 - [ ] Stretch goals
 
 ## DB Structure
