@@ -1,11 +1,11 @@
 <template>
   <v-data-table :headers="headers" :items="jobs" sort-by="calories" class="elevation-1">
     <template v-slot:top>
-      <v-toolbar flat color="white">
+      <!-- <v-toolbar flat color="white">
         <v-toolbar-title>MyJST</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
-        <v-toolbar-title>MyToDo</v-toolbar-title>
-        <v-spacer></v-spacer>
+        <v-toolbar-title>MyToDo</v-toolbar-title> -->
+        <!-- <v-spacer></v-spacer> -->
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on }">
             <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
@@ -47,7 +47,7 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-      </v-toolbar>
+      <!-- </v-toolbar> -->
     </template>
     <template v-slot:item.action="{ item }">
       <v-icon small class="mr-2" @click="editItem(item)">edit</v-icon>

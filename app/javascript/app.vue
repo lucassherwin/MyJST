@@ -1,6 +1,11 @@
 <template>
   <div id="app">
     <v-app>
+      <v-toolbar flat color="white">
+        <router-link to='/jobs'><v-toolbar-title >MyJST</v-toolbar-title></router-link>
+        <v-divider class="mx-4" inset vertical></v-divider>
+        <router-link to="/tasks"><v-toolbar-title>MyToDo</v-toolbar-title></router-link>
+      </v-toolbar>
       <router-view></router-view>
     </v-app>
   </div>
@@ -19,6 +24,11 @@ export default {
   components: {
     job: job,
     task: task
+  },
+  methods: {
+    handleClick: function() {
+      console.log('click');
+    }
   }
 };
 </script>
@@ -28,4 +38,10 @@ p {
   font-size: 2em;
   text-align: center;
 }
+
+a {
+  color: black;
+  text-decoration: none; /* no underline */
+}
+
 </style>
