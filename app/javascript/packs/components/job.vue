@@ -102,7 +102,7 @@ export default {
   methods: {
     initialize() {
       return axios
-      .get("http://localhost:3000/jobs")
+      .get("http://localhost:3000/api/jobs")
       .then(response => {
         console.log(response.data);
         this.jobs = response.data;
@@ -112,8 +112,8 @@ export default {
       });
     },
 
-    getUser(item) {
-      axios.get(`https://localhost:3000/jobs/${item.id}`)
+    getJob(item) {
+      axios.get(`https://localhost:3000/api/jobs/${item.id}`)
       .then(response => {
         this.job = response.data;
         })
@@ -131,7 +131,7 @@ export default {
     save(item) {
       if (this.editedIndex > -1) {
         axios
-          .put(`http://localhost:3000/jobs/${item.id}`, {
+          .put(`http://localhost:3000/api/jobs/${item.id}`, {
             id: this.editedItem.id,
             title: this.editedItem.title,
             company: this.editedItem.company,
@@ -149,7 +149,7 @@ export default {
       } 
       else {
         axios
-          .post(`http://localhost:3000/jobs/`, {
+          .post(`http://localhost:3000/api/jobs/`, {
             job: this.editedItem
           })
           .then(response => {
@@ -168,7 +168,7 @@ export default {
       const index = this.jobs.indexOf(item);
       confirm("Are you sure you want to delete this item?"); 
       axios
-        .delete(`http://localhost:3000/jobs/${item.id}`)
+        .delete(`http://localhost:3000/api/jobs/${item.id}`)
         .then(response => {
           console.log(response);
           console.log(response.data.json);

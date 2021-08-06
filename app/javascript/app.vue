@@ -1,14 +1,15 @@
 <template>
   <div id="app">
     <v-app>
-      <p>{{ message }}</p>
-      <job />
+      <router-view></router-view>
     </v-app>
   </div>
 </template>
 
 <script>
 import job from "./packs/components/job.vue";
+import task from "./packs/components/task.vue";
+
 export default {
   data: function() {
     return {
@@ -16,7 +17,8 @@ export default {
     };
   },
   components: {
-    job: job
+    job: job,
+    task: task
   }
 };
 </script>
