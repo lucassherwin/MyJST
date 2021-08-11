@@ -1,53 +1,67 @@
 <template>
-  <v-data-table :headers="headers" :items="tasks" sort-by="calories" class="elevation-1" show-select @click:row="handleClick" :item-selected="handleClick">
-    <template v-slot:top>
-        <v-dialog v-model="dialog" max-width="500px">
-          <template v-slot:activator="{ on }">
-            <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
-          </template>
-          <v-card>
-            <v-card-title>
-              <span class="headline">{{ formTitle }}</span>
-            </v-card-title>
+  <div class="mx-auto">
+    <v-data-table 
+      :headers="headers" 
+      :items="tasks" 
+      class="elevation-1" 
+      show-select 
+      @click:row="handleClick" 
+      :single-expand="false"
+      show-expand
+      @toggle-select-all="selectAll"
+    >
+      <template v-slot:top>
+          <v-dialog v-model="dialog" max-width="500px">
+            <template v-slot:activator="{ on }">
+              <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
+            </template>
+            <v-card>
+              <v-card-title>
+                <span class="headline">{{ formTitle }}</span>
+              </v-card-title>
 
-            <v-card-text>
-              <v-container>
-                <v-row>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.title" label="Title"></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.body" label="Description"></v-text-field>
-                  </v-col>
-                  <!-- <v-col cols="12" sm="6" md="4">
-                    <v-select v-model="editedItem.status" :items="['Applied', 'In Contact', 'Interview', 'Denied']" label="Status">
-                      <template v-slot:item="{ item, attrs, on }">
-                        <v-list-item v-bind="attrs" v-on="on">
-                          <v-list-item-title :id="attrs['aria-labelledby']" v-text="item"></v-list-item-title>
-                        </v-list-item>
-                      </template>
-                    </v-select>
-                  </v-col> -->
-                </v-row>
-              </v-container>
-            </v-card-text>
+              <!-- add new item -->
+              <v-card-text>
+                <v-container>
+                  <v-row>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.title" label="Title"></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="4">
+                      <v-text-field v-model="editedItem.body" label="Description"></v-text-field>
+                    </v-col>
+                  </v-row>
+                </v-container>
+              </v-card-text>
 
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="save(editedItem)">Save</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-    </template>
-    <template v-slot:item.action="{ item }">
-      <v-icon small class="mr-2" @click="editItem(item)">edit</v-icon>
-      <v-icon small @click="deleteItem(item)">delete</v-icon>
-    </template>
-    <template v-slot:no-data>
-      <v-btn color="primary" @click="initialize">Reset</v-btn>
-    </template>
-  </v-data-table>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
+                <v-btn color="blue darken-1" text @click="save(editedItem)">Save</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+      </template>
+
+      <!-- edit/delete buttons -->
+      <template v-slot:item.action="{ item }">
+        <v-icon small class="mr-2" @click="editItem(item)">edit</v-icon>
+        <v-icon small @click="deleteItem(item)">delete</v-icon>
+      </template>
+
+      <!-- reset button -->
+      <template v-slot:no-data>
+        <v-btn color="primary" @click="initialize">Reset</v-btn>
+      </template>
+
+      <!-- expanded info -->
+      <template v-slot:expanded-item="{ headers, item }">
+        <td :colspan="headers.length">
+          {{ item.body }}
+        </td>
+      </template>
+    </v-data-table>
+  </div>
 </template>
 
 <script>
@@ -57,12 +71,12 @@ export default {
     dialog: false,
     headers: [
       {
-        text: "ToDo",
+        text: "ToDo List",
         align: "left",
         sortable: false,
         value: "title"
       },
-      { text: "Description", value: "body" },
+      // { text: "Description", value: "body" },
       { text: "Actions", value: "action", sortable: false }
     ],
     tasks: [],
@@ -165,6 +179,10 @@ export default {
         this.editedItem = Object.assign({});
         this.editedIndex = -1;
       }, 300);
+    },
+
+    selectAll() {
+      console.log('Select all');
     },
 
     handleClick() {

@@ -26,6 +26,9 @@
 - [x] Make frontned better
   - [x] header MyJST | ToDos as buttons that load each respective component
 - [ ] Build out ToDo page
+  - [x] Add expandable rows to show description
+  - [ ] CSS
+    - Dont stretch to fill whole page
 - [ ] Welcome page
   - Sign In / Sign Out buttons
 - [ ] Improve routes on backend
