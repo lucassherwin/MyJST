@@ -28,6 +28,10 @@
 - [ ] Build out ToDo page
 - [ ] Welcome page
   - Sign In / Sign Out buttons
+- [ ] Improve routes on backend
+  - initial visit direct to welcome page
+  - if user has an account and stays signed in go directly to their page
+  - otherwise welcome page
 - [ ] Add extra items like auth
 - [ ] Stretch goals
 
