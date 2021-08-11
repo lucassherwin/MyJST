@@ -25,8 +25,9 @@
 - [x] Get data from DB on frontend
 - [x] Make frontned better
   - [x] header MyJST | ToDos as buttons that load each respective component
-  - [ ] welcome page
 - [ ] Build out ToDo page
+- [ ] Welcome page
+  - Sign In / Sign Out buttons
 - [ ] Add extra items like auth
 - [ ] Stretch goals
 
