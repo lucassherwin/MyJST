@@ -1,12 +1,14 @@
 <template>
   <div id="app">
     <v-app>
-      <v-toolbar flat color="white">
-        <router-link to='/jobs'><v-toolbar-title >MyJST</v-toolbar-title></router-link>
-        <v-divider class="mx-4" inset vertical></v-divider>
-        <router-link to="/tasks"><v-toolbar-title>MyToDo</v-toolbar-title></router-link>
-      </v-toolbar>
-      <router-view></router-view>
+      <div class="d-flex flex-column">
+        <v-toolbar flat color="white">
+          <router-link to='/jobs'><v-toolbar-title >MyJST</v-toolbar-title></router-link>
+          <v-divider class="mx-4" inset vertical></v-divider>
+          <router-link to="/tasks"><v-toolbar-title>MyToDo</v-toolbar-title></router-link>
+        </v-toolbar>
+        <router-view></router-view>
+      </div>
     </v-app>
   </div>
 </template>
