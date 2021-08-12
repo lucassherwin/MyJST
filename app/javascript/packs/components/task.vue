@@ -5,7 +5,7 @@
       :items="tasks" 
       class="elevation-1" 
       show-select 
-      @click:row="handleClick" 
+      @click:select="handleClick" 
       :single-expand="false"
       show-expand
       @toggle-select-all="selectAll"

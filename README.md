@@ -29,6 +29,7 @@
   - [x] Add expandable rows to show description
   - [ ] CSS
     - Dont stretch to fill whole page
+- [ ] Add tests
 - [ ] Welcome page
   - Sign In / Sign Out buttons
   - Information about what the app does
