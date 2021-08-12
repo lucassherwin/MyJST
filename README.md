@@ -31,10 +31,15 @@
     - Dont stretch to fill whole page
 - [ ] Welcome page
   - Sign In / Sign Out buttons
+  - Information about what the app does
+  - Video demonstration
 - [ ] Improve routes on backend
   - initial visit direct to welcome page
   - if user has an account and stays signed in go directly to their page
   - otherwise welcome page
+- [ ] ToDo Improvements
+  - Multiple lists
+  - Dropdown to change which list is shown
 - [ ] Add extra items like auth
 - [ ] Stretch goals
 
