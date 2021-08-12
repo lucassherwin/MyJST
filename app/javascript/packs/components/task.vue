@@ -183,16 +183,31 @@ export default {
       }, 300);
     },
 
-    // selectAll() {
-    //   console.log('Select all', this.selected);
-    // },
-
     handleClick(item) {
-      console.log('click', this.selected);
-      console.log('item: ', item[0].body)
+      console.log('selected', this.selected);
+      console.log('item: ', item[0].id)
       // item[0] is the selected item
       // body, title, status
       // update task with status
+      axios
+          .put(`http://localhost:3000/api/tasks/${item[0].id}`, {
+            id: item[0].id,
+            title: item[0].title,
+            company: item[0].body,
+            status: !item[0].status, // flip this... false by default
+            user_id: 1 // hardcode this for now
+          })
+          .then(response => {
+          console.log(response);
+          this.initialize();
+          })
+          .catch(error => {
+          console.log(error);
+        });
+      // will have to handle selectAll differently
+      // do a check to see if selected.length = tasks.length to see if it is a select all
+      // if so update them all
+      // probably will want to disable that row as well to avoid a user changing the status many times
     }
   }
 };
