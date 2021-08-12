@@ -5,11 +5,13 @@
       :items="tasks" 
       class="elevation-1" 
       show-select 
-      @click:select="handleClick" 
+      @input="handleClick"
       :single-expand="false"
       show-expand
-      @toggle-select-all="selectAll"
+      @toggle-select-all="handleClick(item)"
+      v-model="selected"
     >
+      <!-- add new item -->
       <template v-slot:top>
           <v-dialog v-model="dialog" max-width="500px">
             <template v-slot:activator="{ on }">
@@ -20,7 +22,6 @@
                 <span class="headline">{{ formTitle }}</span>
               </v-card-title>
 
-              <!-- add new item -->
               <v-card-text>
                 <v-container>
                   <v-row>
@@ -87,7 +88,8 @@ export default {
       contact: "",
       status: "",
       user_id: 1 // hardcode this for now
-    }
+    },
+    selected: []
   }),
   computed: {
     formTitle() {
@@ -181,12 +183,16 @@ export default {
       }, 300);
     },
 
-    selectAll() {
-      console.log('Select all');
-    },
+    // selectAll() {
+    //   console.log('Select all', this.selected);
+    // },
 
-    handleClick() {
-      console.log('click');
+    handleClick(item) {
+      console.log('click', this.selected);
+      console.log('item: ', item[0].body)
+      // item[0] is the selected item
+      // body, title, status
+      // update task with status
     }
   }
 };
