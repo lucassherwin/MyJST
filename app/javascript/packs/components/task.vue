@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto">
+  <div class="mx-8">
     <v-data-table 
       :headers="headers" 
       :items="tasks" 
@@ -75,10 +75,11 @@ export default {
         text: "ToDo List",
         align: "left",
         sortable: false,
-        value: "title"
+        value: "title",
+        width: '75%'
       },
       // { text: "Description", value: "body" },
-      { text: "Actions", value: "action", sortable: false }
+      { text: "Actions", value: "action", sortable: false, width: '20%' }
     ],
     tasks: [],
     editedIndex: -1,
