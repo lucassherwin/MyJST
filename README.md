@@ -29,6 +29,7 @@
   - [x] Add expandable rows to show description
   - [ ] CSS
     - Dont stretch to fill whole page
+- [ ] Bug: Have to refresh after creating a job/task before creating another
 - [ ] Add tests
 - [ ] Welcome page
   - Sign In / Sign Out buttons

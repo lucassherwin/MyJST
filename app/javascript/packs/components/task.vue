@@ -115,6 +115,7 @@ export default {
       .catch(e => {
         console.log(e);
       });
+
     },
 
     editItem(item) {
@@ -124,6 +125,7 @@ export default {
     },
 
     save(item) {
+      // edit
       if (this.editedIndex > -1) {
         axios
           .put(`http://localhost:3000/api/tasks/${item.id}`, {
@@ -141,6 +143,7 @@ export default {
           console.log(error);
         });
       } 
+      // create
       else {
         axios
           .post(`http://localhost:3000/api/tasks/`, {
@@ -189,21 +192,21 @@ export default {
       // item[0] is the selected item
       // body, title, status
       // update task with status
-      axios
-          .put(`http://localhost:3000/api/tasks/${item[0].id}`, {
-            id: item[0].id,
-            title: item[0].title,
-            company: item[0].body,
-            status: !item[0].status, // flip this... false by default
-            user_id: 1 // hardcode this for now
-          })
-          .then(response => {
-          console.log(response);
-          this.initialize();
-          })
-          .catch(error => {
-          console.log(error);
-        });
+      // axios
+      //     .put(`http://localhost:3000/api/tasks/${item[0].id}`, {
+      //       id: item[0].id,
+      //       title: item[0].title,
+      //       company: item[0].body,
+      //       status: !item[0].status, // flip this... false by default
+      //       user_id: 1 // hardcode this for now
+      //     })
+      //     .then(response => {
+      //     console.log(response);
+      //     this.initialize();
+      //     })
+      //     .catch(error => {
+      //     console.log(error);
+      //   });
       // will have to handle selectAll differently
       // do a check to see if selected.length = tasks.length to see if it is a select all
       // if so update them all
