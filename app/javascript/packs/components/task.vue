@@ -8,7 +8,7 @@
       @input="handleClick"
       :single-expand="false"
       show-expand
-      @toggle-select-all="handleClick(item)"
+      @toggle-select-all="handleClick"
       v-model="selected"
     >
       <!-- add new item -->
@@ -187,31 +187,36 @@ export default {
       }, 300);
     },
 
-    handleClick(item) {
-      console.log('selected', this.selected);
-      console.log('item: ', item[0].id)
-      // item[0] is the selected item
-      // body, title, status
-      // update task with status
-      // axios
-      //     .put(`http://localhost:3000/api/tasks/${item[0].id}`, {
-      //       id: item[0].id,
-      //       title: item[0].title,
-      //       company: item[0].body,
-      //       status: !item[0].status, // flip this... false by default
-      //       user_id: 1 // hardcode this for now
-      //     })
-      //     .then(response => {
-      //     console.log(response);
-      //     this.initialize();
-      //     })
-      //     .catch(error => {
-      //     console.log(error);
-      //   });
-      // will have to handle selectAll differently
-      // do a check to see if selected.length = tasks.length to see if it is a select all
-      // if so update them all
-      // probably will want to disable that row as well to avoid a user changing the status many times
+    // selectItem(item) {
+    //   console.log('selected', this.selected);
+    //   console.log('item: ', item)
+      
+    //   let last_item = item[item.length - 1];
+    //   // axios
+    //   //   .put(`http://localhost:3000/api/tasks/${last_item.id}`, {
+    //   //     id: last_item.id,
+    //   //     title: last_item.title,
+    //   //     company: last_item.body,
+    //   //     status: !last_item.status, // flip this... false by default
+    //   //     user_id: 1 // hardcode this for now
+    //   //   })
+    //   //   .then(response => {
+    //   //   console.log(response);
+    //   //   this.initialize();
+    //   //   })
+    //   //   .catch(error => {
+    //   //   console.log(error);
+    //   // });
+      
+    //   // probably will want to disable that row as well to avoid a user changing the status many times
+    // },
+
+    // selectAll() {
+    //   console.log('select all')
+    // }
+
+    handleClick() {
+      console.log('click')
     }
   }
 };
