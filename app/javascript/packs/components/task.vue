@@ -78,7 +78,6 @@ export default {
         value: "title",
         width: '75%'
       },
-      // { text: "Description", value: "body" },
       { text: "Actions", value: "action", sortable: false, width: '20%' }
     ],
     tasks: [],
@@ -186,34 +185,6 @@ export default {
         this.editedIndex = -1;
       }, 300);
     },
-
-    // selectItem(item) {
-    //   console.log('selected', this.selected);
-    //   console.log('item: ', item)
-      
-    //   let last_item = item[item.length - 1];
-    //   // axios
-    //   //   .put(`http://localhost:3000/api/tasks/${last_item.id}`, {
-    //   //     id: last_item.id,
-    //   //     title: last_item.title,
-    //   //     company: last_item.body,
-    //   //     status: !last_item.status, // flip this... false by default
-    //   //     user_id: 1 // hardcode this for now
-    //   //   })
-    //   //   .then(response => {
-    //   //   console.log(response);
-    //   //   this.initialize();
-    //   //   })
-    //   //   .catch(error => {
-    //   //   console.log(error);
-    //   // });
-      
-    //   // probably will want to disable that row as well to avoid a user changing the status many times
-    // },
-
-    // selectAll() {
-    //   console.log('select all')
-    // }
 
     handleClick() {
       console.log('click')
