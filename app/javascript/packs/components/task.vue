@@ -217,6 +217,24 @@ export default {
 
     handleClick() {
       console.log('click')
+
+      // filter out items that have a status of true
+      // loop over filtered items and update
+      this.selected.filter(item => !item.status).forEach(item => {
+        console.log(item.id)
+        axios.put(`http://localhost:3000/api/tasks/${item.id}`, {
+          id: item.id,
+          title: item.title,
+          company: item.body,
+          status: true,
+          user_id: 1 // hardcode this for now
+        }).then(response => {
+          console.log(response);
+          this.initialize();
+        }).catch(error => {
+          console.log(error);
+        });
+      })
     }
   }
 };
