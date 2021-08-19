@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-8">
+  <div class="mx-16">
     <v-data-table 
       :headers="headers" 
       :items="tasks" 
@@ -76,9 +76,9 @@ export default {
         align: "left",
         sortable: false,
         value: "title",
-        width: '75%'
+        width: '90%'
       },
-      { text: "Actions", value: "action", sortable: false, width: '20%' }
+      { text: "Actions", value: "action", sortable: false, width: '10%' }
     ],
     tasks: [],
     editedIndex: -1,
