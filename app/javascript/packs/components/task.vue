@@ -84,9 +84,8 @@ export default {
     editedIndex: -1,
     editedItem: {
       title: "",
-      company: "",
-      contact: "",
-      status: "",
+      body: "",
+      status: false, // false is the default
       user_id: 1 // hardcode this for now
     },
     selected: []
@@ -179,10 +178,18 @@ export default {
     },
   
     close() {
+      console.log('>>>>', this.editedItem)
       this.dialog = false;
       setTimeout(() => {
-        this.editedItem = Object.assign({});
+        // this.editedItem = Object.assign({});
+        this.editedItem = {
+          title: "",
+          body: "",
+          status: false, // false is the default
+          user_id: 1 // hardcode this for now
+        };
         this.editedIndex = -1;
+        
       }, 300);
     },
 
