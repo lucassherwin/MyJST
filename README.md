@@ -25,11 +25,11 @@
 - [x] Get data from DB on frontend
 - [x] Make frontned better
   - [x] header MyJST | ToDos as buttons that load each respective component
-- [ ] Build out ToDo page
+- [x] Build out ToDo page
   - [x] Add expandable rows to show description
-  - [ ] CSS
+  - [x] CSS
     - Dont stretch to fill whole page
-- [ ] Bug: Have to refresh after creating a job/task before creating another
+- [x] Bug: Have to refresh after creating a job/task before creating another
 - [ ] Add tests
 - [ ] Welcome page
   - Sign In / Sign Out buttons
@@ -40,8 +40,9 @@
   - if user has an account and stays signed in go directly to their page
   - otherwise welcome page
 - [ ] ToDo Improvements
-  - Multiple lists
-  - Dropdown to change which list is shown
+  - [ ] Multiple lists
+  - [ ] Dropdown to change which list is shown
+  - [ ] Checkboxes are checked when loading data
 - [ ] Add extra items like auth
 - [ ] Stretch goals
 
